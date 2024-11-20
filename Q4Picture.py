@@ -1,31 +1,36 @@
-# Using the pygame library, draw a simple picture. 
-# It can be anything you like, but you must use at least 2 different types of shapes and 3 different colors.
-
-import random
-
 import pygame
+import sys
+import random
+from pygame.locals import QUIT
 
-from pygame.event import wait
+x = 900
+y = 500
 
-x = 750
-y = 400
+FPS = 16
+
+Clock = pygame.time.Clock()
 pygame.init()
-GameSurface = pygame.display.set_mode((x, y))
-print("Type disconnect to exit, or press enter to continue: ")
+DISPLAYSURF = pygame.display.set_mode((x, y))
+DISPLAYSURF.fill(pygame.Color(135,0,0))
+pygame.display.set_caption('Idk')
+def Random():
+   rndX = random.randint(0,x)
+   rndY = random.randint(0,y)
+   return rndX, rndY
+
+def Malev():
+   DISPLAYSURF.fill(pygame.Color(135,0,0))
+   pygame.draw.rect(DISPLAYSURF, pygame.Color(0,0,100), (x/3.25,y/3.25,x/3.25,y/3.25))
+   return
+
 while True:
-    for i in range(round(x*y/150)):
-        color = random.randint(0,5)
-        if color == 1:
-            color = "blue"
-        elif color == 2:
-            color = "red"
-        elif color == 3:
-            color = "green"
-        elif color == 4:
-            color = "yellow"
-        else:
-            color = "white"
-        pygame.draw.circle(GameSurface,color,(random.randint(0,x), random.randint(0,y)), x*y/10000)
-        pygame.draw.circle(GameSurface,color,(random.randint(0,x), random.randint(0,y)), x*y/10000)
-    if input() == "disconnect":
-        break
+   for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+   Malev()
+   for nil in range(round(7*32/FPS)):
+      pygame.draw.line(DISPLAYSURF, (0,0,0), (Random()), (Random()),round(9/32*FPS+3))
+      pygame.draw.line(DISPLAYSURF, (255,255,255), (Random()), (Random()),round(6/32*FPS+3))
+   Clock.tick(FPS)
+   pygame.display.update()
