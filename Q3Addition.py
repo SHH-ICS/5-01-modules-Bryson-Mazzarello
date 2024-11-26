@@ -23,7 +23,8 @@ while True:
                     B = random.randint(1,10**streak)
                     print ("What is",A,"+",B)
             except:
-                if inp == "Exit":
+                print("Fail, type Exit to leave")
+                if input() == "Exit":
                     break
     else:
         c = True
@@ -43,5 +44,6 @@ while True:
                     B = random.randint(1,10**streak)
                     print ("What is",A,"-",B)
             except:
+                print("Fail, type Exit to leave")
                 if inp == "Exit":
                     break
