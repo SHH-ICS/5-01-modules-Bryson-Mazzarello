@@ -7,4 +7,7 @@ while True:
     try:
        a = int(input()); b = int(input()); print(random.randint(min(a,b),max(a,b)))
     except:
-        print("Fail")
+        print("Fail, type Exit if you want to Exit")
+        if input() == "Exit":
+            break
+        

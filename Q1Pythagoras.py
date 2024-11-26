@@ -6,5 +6,7 @@ while True:
     try:
        a = int(input()); b = int(input()); print(math.sqrt(a**2 + b**2))
     except: 
-        print("Fail")
+        print("Fail, type Exit if you want to Exit")
+        if input() == "Exit":
+            break
         
